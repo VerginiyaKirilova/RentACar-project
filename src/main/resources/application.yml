@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    password: vergito
+    url: jdbc:mysql://localhost:3306/rentaCar_system?createDatabaseIfNotExist=true
+    username: root
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+  server:
+    error:
+      include-message: always
+      include-binding-error: always
