@@ -38,5 +38,6 @@ public class ApplicationExceptionHandler {
     @ResponseStatus(HttpStatus.BAD_REQUEST)
         ResponseEntity<String> handleConstraintViolationException(MethodArgumentNotValidException e) {
             return new ResponseEntity<>("Request not valid due to validation error.", HttpStatus.BAD_REQUEST);
+//            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
         }
 }

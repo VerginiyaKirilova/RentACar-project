@@ -32,7 +32,6 @@ public class UserConvertor {
                 .lastName(user.getLastName())
                 .address(user.getAddress())
                 .email(user.getEmail())
-                .address(user.getAddress())
                 .build();
 
     }

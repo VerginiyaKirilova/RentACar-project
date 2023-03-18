@@ -3,12 +3,12 @@ package com.example.project.dto;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.validator.constraints.Email;
+import jakarta.validation.constraints.Email;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.annotation.Validated;
 
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
 
 
 @Getter
@@ -23,7 +23,7 @@ public class UserRequest {
     @Email(regexp =  "[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,3}",
             flags = Pattern.Flag.CASE_INSENSITIVE,message = "Email should have proper email format")
     private String email;
-    @Pattern(regexp = "^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[d]){1,})(?=(.*[\\W]){1,})(?!.*\\s).{8,}$",
+    @Pattern(regexp = "^(?=.*?[A-Z])(?=(.*[a-z]){1,})(?=(.*[\\d]){1,})(?=(.*[\\W]){1,})(?!.*\\s).{8,}$",
             message = """
                     At least one upper case English letter
                     At least one lower case English letter

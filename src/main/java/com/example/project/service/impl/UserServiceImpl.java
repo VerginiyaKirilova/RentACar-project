@@ -37,7 +37,7 @@ public class UserServiceImpl implements UserService {
     }
       @Override
     public void updateUserPassword(UserPasswordUpdate userPasswordUpdate , Long id) throws RecordNotFoundException {
-        Optional<User> users = userRepository.findById(userPasswordUpdate.getId());
+        Optional<User> users = userRepository.findById(id);
         if(users.isEmpty()){
             throw  new RecordNotFoundException("User not found or invalid credentials");
         } else if(!bCryptPasswordEncoder.matches(
@@ -45,7 +45,7 @@ public class UserServiceImpl implements UserService {
                 users.get().getPassword())){
             throw  new RecordNotFoundException("User not found or password is wrong");
         } else {
-            users.get().setPassword(userPasswordUpdate.getPassword());
+            users.get().setPassword(userPasswordUpdate.getNewPassword());
         }
     }
 

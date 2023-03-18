@@ -20,6 +20,6 @@ public class Car {
     private String brand;
     private String model;
     private String numberSeats;
-    private boolean rentPrice;
+    private Double rentPrice;
 
 }

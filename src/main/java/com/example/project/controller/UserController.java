@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
 
 
 
@@ -26,14 +27,14 @@ public class UserController {
     UserConvertor userConvertor;
 
     @PostMapping
-    ResponseEntity<UserResponse> save(@RequestBody @Valid UserRequest userRequest){
+    ResponseEntity<UserResponse> save (@RequestBody @Valid UserRequest userRequest){
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(userService.saveUser(userRequest));
     }
 
     @PutMapping(path = "/password/{id}")
-    ResponseEntity<String> updateUserPassword ( @RequestBody @Valid @PathVariable Long id, UserPasswordUpdate user) throws RecordNotFoundException {
+    ResponseEntity<String> updateUserPassword (@Valid @PathVariable Long id, @RequestBody UserPasswordUpdate user) throws RecordNotFoundException {
         userService.updateUserPassword(user, id);
         return ResponseEntity
                 .status(HttpStatus.ACCEPTED)
